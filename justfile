@@ -43,7 +43,7 @@ sync:
     fi
 
     # Install skills from agent-skills repo
-    just install-all sablier-labs/agent-skills
+    just install-catalog sablier-labs/agent-skills
 
     # Commit the installed skills
     ccc
