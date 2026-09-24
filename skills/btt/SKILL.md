@@ -31,11 +31,13 @@ cargo install bulloak
 ### Generate test contract from a .tree file
 
 ```bash
-bulloak scaffold -wf --skip-modifiers --format-descriptions <path/to/file.tree>
+bulloak scaffold -w --skip-modifiers --format-descriptions <path/to/file.tree>
 ```
 
 where:
 
+- `-w` writes the `.t.sol` only if it does not exist. Adding `-f` (`-wf`) overwrites an existing test and discards
+  implemented bodies; to add tests for new branches, use `bulloak check --fix --skip-modifiers --format-descriptions`.
 - `--format-descriptions` capitalizes the first letter of the branch in the test contract and add a period at the end of
   it.
 - `--skip-modifiers` skips the generation of modifiers. We do this because we put all the modifiers in a separate
@@ -117,7 +119,7 @@ Location for tree file: `tests/integration/concrete/{function-name}/{functionNam
 ### 2. Generate Test Scaffold
 
 ```bash
-bulloak scaffold -wf --skip-modifiers --format-descriptions <path/to/file.tree>
+bulloak scaffold -w --skip-modifiers --format-descriptions <path/to/file.tree>
 ```
 
 This generates a `.t.sol` file.
@@ -220,7 +222,7 @@ Child branch symbols (├/└) must align with the **tail** of parent's `└─�
 
 ```bash
 # Scaffold tests from tree
-bulloak scaffold -wf --skip-modifiers --format-descriptions <path/to/file.tree>
+bulloak scaffold -w --skip-modifiers --format-descriptions <path/to/file.tree>
 
 # Check all trees in a directory
 bulloak check --skip-modifiers tests/**/*.tree

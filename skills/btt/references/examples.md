@@ -59,23 +59,24 @@ ______________________________________________________________________
 
 ## Multiple Functions (Same Contract)
 
-Use `ContractName::FunctionName` syntax:
+Use `ContractName::functionName` roots, all sharing the same contract name:
 
 ```
-ContractName::FunctionA_Integration_Concrete_Test
+ContractName::functionA
 ├── when a is zero
 │  └── it should revert
 └── when a is not zero
    └── it should return 10
 
-ContractName::FunctionB_Integration_Concrete_Test
+ContractName::functionB
 ├── when b is zero
 │  └── it should revert
 └── when b is not zero
    └── it should return 20
 ```
 
-**Generated**: Single contract with prefixed function names.
+**Generated**: Contract `ContractName` with `test_FunctionA_RevertWhen_AIsZero()`, `test_FunctionA_WhenAIsNotZero()`,
+`test_FunctionB_RevertWhen_BIsZero()`, and `test_FunctionB_WhenBIsNotZero()`.
 
 ______________________________________________________________________
 
